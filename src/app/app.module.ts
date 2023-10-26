@@ -12,7 +12,7 @@ import { InputComponent } from "@ui5/webcomponents-ngx/main/input";
 @NgModule({
   declarations: [
     AppComponent,
-    FormsComponent
+    FormsComponent,
   ],
   imports: [
     BrowserModule,

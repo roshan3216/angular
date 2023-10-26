@@ -1,6 +1,6 @@
 <div class="login-container">
 
-  <form [formGroup] ="loginForm" >
+  <!-- <form [formGroup] ="loginForm" > -->
 
     <!-- <label for="username">Username:</label>
     <input type="text" id="username" formControlName="username" />
@@ -11,26 +11,40 @@
     <button type="submit">Login</button> -->
     <!-- <button type="submit">Login</button> -->
     <br/>
-    <ui5-input
+    <!-- <ui5-input
     class="samples-margin samples-responsive-margin-bottom"
     formControlName="username"
     [(ngModel)]="username"
-
+    placeholder="Username"
+    spellcheck="true"
+    type ="Email"
     ></ui5-input>
     <br/>
     <ui5-input
     class="samples-margin samples-responsive-margin-bottom"
     [(ngModel)]="password"
     formControlName="password"
+    placeholder="Password"
+    required
+    type="Password"
     ></ui5-input>
+    <br/> -->
+
+
+    <ui5-label class="samples-big-margin-right">Username : &nbsp;</ui5-label>
+    <ui5-input id="input-6" [(ngModel)]="username" [required]="true" name="'username" placeholder="username"  type="Email"></ui5-input>
 
     <br/>
+
+    <ui5-label class="samples-big-margin-right">Password : &nbsp; </ui5-label>
+    <ui5-input id="input-6" [(ngModel)]="password" [required]="true" name="password" placeholder="password"  type="Password"></ui5-input>
     
+    <br/>
     <ui5-button class="samples-margin" design="Emphasized" (click) ="login()" >
         <!-- <button> -->
-            Submit
+            {{buttonName}}
         <!-- </button> -->
     </ui5-button>
-    <p class="error-message" *ngIf="loginError">Invalid credentials</p>
-  </form>
+    <!-- <p class="error-message" *ngIf="loginError">Invalid credentials</p>
+  </form> -->
 </div>

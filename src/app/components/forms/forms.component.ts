@@ -8,7 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.css']
+  styleUrls: ['./forms.component.css'],
+  // standalone: true,
+  // imports: [InputComponent],
 })
 export class FormsComponent {
   // @Input() username : string;
@@ -19,11 +21,14 @@ export class FormsComponent {
   // console.log(this.password);
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    // private inputComponent: InputComponent
+    ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-    });
+    })
   }
 
   handleSubmit(e : any) {
@@ -36,8 +41,9 @@ export class FormsComponent {
   uname : string = 'roshan'
   pword : string = '1234'
 
-  username: string = '';
-  password: string = '';
+  username: string;
+  password: string ;
+  buttonName : String = 'Submit';
   loginError: boolean = false;
 
   login() {
@@ -51,7 +57,9 @@ export class FormsComponent {
       // Implement the logic for successful login
       console.log("Success in login");
       this.loginError = false;
+      this.buttonName = 'Logged In';
     } else {
+      this.buttonName = 'Submit';
       console.log("Error in sign in. Try Again !!!!");
       this.loginError = true;
     }
